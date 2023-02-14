@@ -10,7 +10,7 @@
     <h1>Lead</h1>
     <p>Cost: <span id="cost"></span></p>
     <script>
-      var params = URLSearchParams(location.search)
+      var params = new URLSearchParams(location.search)
       var cost = document.getElementById("cost")
       if (params.get("pack") == "1") {
         cost.innerHTML = "$0.59"
