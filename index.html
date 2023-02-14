@@ -13,13 +13,18 @@
     <script>
       // Generate book list
       const bookData = {
-        "Elly: My True Story of the Holocaust": ["A sad story about a survivor of the Holocaust."],
+        "Lead (1-PACK)": ["Why buy only one lead, the main currency of the classroom?", 0, 59],
+        "Lead (5-PACK)": ["Just as bad as buying one lead.", 2, 45],
+        "Lead (10-PACK)": ["Just as bad as buying one lead.", 5, 90],
+        "Lead (25-PACK)": ["The main currency of the classroom.", 12, 25],
+        "Lead (100-PACK)": ["The main currency of the classroom.", 49, 0],
         "The Dressmaker's Daughter": ["Sent to the farm by the Nazis, the daughter survived only because of her mom, the dressmaker."]
       }
       let html = ""
       for (const book in bookData) {
         html += `<h2>${book}</h2>
-        <p>${bookData[book][0]}</p>`
+        <p>${bookData[book][0]}</p>
+        <p>Cost: $${bookData[book][1]}.`
       }
       document.getElementById("bookcontainer").innerHTML = html
     </script>
