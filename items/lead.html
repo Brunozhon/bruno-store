@@ -11,7 +11,7 @@
     <p>Cost: <span id="cost"></span></p>
     <script>
       var params = URLSearchParams(location.search)
-      var costEl = document.getElementById("cost")
+      var cost = document.getElementById("cost")
       if (params.get("pack") == "1") {
         cost.innerHTML = "$0.59"
       } else if (params.get("pack") == "5") {
