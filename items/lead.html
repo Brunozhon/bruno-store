@@ -13,15 +13,15 @@
       var params = new URLSearchParams(location.search)
       var cost = document.getElementById("cost")
       if (params.get("pack") == "1") {
-        cost.innerHTML = "$0.59"
+        cost.innerHTML = "$0.06"
       } else if (params.get("pack") == "5") {
-        cost.innerHTML = "$2.35"
+        cost.innerHTML = "$0.24"
       } else if (params.get("pack") == "10") {
-        cost.innerHTML = "$5.90"
+        cost.innerHTML = "$0.59"
       } else if (params.get("pack") == "25") {
-        cost.innerHTML = "$12.25"
+        cost.innerHTML = "$1.23"
       } else if (params.get("pack") == "100") {
-        cost.innerHTML = "$49.00"
+        cost.innerHTML = "$4.90"
       } else {
         cost.innerHTML = "There was an error getting the data, so you should panic."
       }
