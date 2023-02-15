@@ -53,7 +53,7 @@
           realCart[item][1] *= dollars * realCart[item][0]
           realCart[item][2] *= cents * realCart[item][0]
           // 100 cents should be one dollar
-          while (realCart[item] > 99) {
+          while (realCart[item][2] > 99) {
             realCart[item][2] -= 100
             realCart[item][1] += 1
           }
