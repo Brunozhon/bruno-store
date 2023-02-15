@@ -46,7 +46,7 @@
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
         var realCart = JSON.parse(localStorage.itemsInCart)
-        if (localStorage.itemsInCart[item]) {
+        if (realCart[item]) {
           realCart[item][0] += 1
         } else {
           realCart[item] = [1, dollars, cents]
