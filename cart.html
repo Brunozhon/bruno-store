@@ -43,6 +43,7 @@
         }
         html += `${cost}</li>`
       }
+      document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
         var realCart = JSON.parse(localStorage.itemsInCart)
         if (localStorage.itemsInCart[item]) {
