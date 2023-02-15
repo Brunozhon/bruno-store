@@ -28,6 +28,11 @@
       } else if (cart == "lead-100-pack") {
         addItem("Lead (100-PACK)", 4, 90)
       }
+      var html = ""
+      // Render items
+      for (item in localStorage.itemsInCart) {
+        html += ``
+      }
       function addItem(item, dollars, cents) {
         if (localStorage.itemsInCart[item]) {
           localStorage.itemsInCart[item] += [1, dollars, cents]
