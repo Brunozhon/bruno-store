@@ -29,12 +29,12 @@
         addItem("Lead (100-PACK)", 4, 90)
       }
       var html = ""
-      var cart = JSON.parse(localStorage.itemsInCart)
+      var cartItems = JSON.parse(localStorage.itemsInCart)
       // Render items
-      for (const item in cart) {
-        html += `<li class="list-group-item">${item}; Count: ${cart[item][0]}; Cost each: $${cart[item][1]}.`
+      for (const item in cartItems) {
+        html += `<li class="list-group-item">${item}; Count: ${cartItems[item][0]}; Cost each: $${cartItems[item][1]}.`
         // Format cents. This is why I seperated the dollars and cents to two values.
-        var cost = cart[item][2]
+        var cost = cartItems[item][2]
         if (cost < 10 && cost > -1) {
           cost = cost.toString()
           cost = "0" + cost
