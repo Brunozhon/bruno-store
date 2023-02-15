@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>My Cart</h1>
+    <p><button class="btn btn-danger" onclick="deleteCart()">Delete All Items In Cart</button></p>
     <ul class="list-group" id="cart">
     </ul>
     <script>
@@ -41,17 +42,39 @@
           cost = cost.toString()
           cost = "0" + cost
         }
-        html += `${cost}</li>`
+        html += `${cost}</li><button onclick="">Delete One Of This</button>`
       }
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
         var realCart = JSON.parse(localStorage.itemsInCart)
         if (realCart[item]) {
           realCart[item][0] += 1
+          // Process cents and dollars
+          realCart[item][1] *= dollars * realCart[item][0]
+          realCart[item][2] *= cents * realCart[item][0]
+          // 100 cents should be one dollar
+          while (realCart[item] > 99) {
+            realCart[item][2] -= 100
+            realCart[item][1] += 1
+          }
         } else {
           realCart[item] = [1, dollars, cents]
         }
         localStorage.itemsInCart = JSON.stringify(realCart)
+      }
+      function deleteCart() {
+        if (confirm("Do you want to delete all the items in your cart?")) {
+          localStorage.itemsInCart = JSON.stringify({})
+          location.reload()
+        }
+      }
+      function deleteItem(item) {
+        if (confirm(`Do you want to delete the item ${item}?`)) {
+          var realCart = JSON.parse(localStorage.itemsInCart)
+          delete realCart[item]
+          localStorage.itemsInCart = JSON.stringify(realCart)
+          location.reload()
+        }
       }
       
     </script>
