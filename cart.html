@@ -65,7 +65,7 @@
       function deleteCart() {
         if (confirm("Do you want to delete all the items in your cart?")) {
           localStorage.itemsInCart = JSON.stringify({})
-          location.reload()
+          location.replace("https://brunozhon.github.io/bruno-store/cart.html")
         }
       }
       function deleteItem(item) {
@@ -73,7 +73,7 @@
           var realCart = JSON.parse(localStorage.itemsInCart)
           delete realCart[item]
           localStorage.itemsInCart = JSON.stringify(realCart)
-          location.reload()
+          location.replace("https://brunozhon.github.io/bruno-store/cart.html")
         }
       }
       
