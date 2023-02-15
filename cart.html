@@ -11,12 +11,14 @@
     <ul class="list-group" id="cart">
     </ul>
     <script>
+      
       // Add cart if it does not exist
       if (!localStorage.itemsInCart) {
         localStorage.itemsInCart = JSON.stringify({})
       }
       // Add items, if needed
-      var cart = (new URLSearchParams(location.search)).get("cart")
+      var params = new URLSearchParams(location.search)
+      var cart = params.get("cart")
       if (cart == "lead-1-pack") {
         addItem("Lead (1-PACK)", 0, 6)
       } else if (cart == "lead-5-pack") {
@@ -50,6 +52,7 @@
         }
         localStorage.itemsInCart = JSON.stringify(realCart)
       }
+      
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
