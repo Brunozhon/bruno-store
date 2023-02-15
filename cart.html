@@ -50,8 +50,8 @@
         if (realCart[item]) {
           realCart[item][0] += 1
           // Process cents and dollars
-          realCart[item][1] *= dollars * realCart[item][0]
-          realCart[item][2] *= cents * realCart[item][0]
+          realCart[item][1] = dollars * realCart[item][0]
+          realCart[item][2] = cents * realCart[item][0]
           // 100 cents should be one dollar
           while (realCart[item][2] > 99) {
             realCart[item][2] -= 100
