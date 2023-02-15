@@ -29,9 +29,17 @@
         addItem("Lead (100-PACK)", 4, 90)
       }
       var html = ""
+      var cart = localStorage.itemsInCart
       // Render items
-      for (item in localStorage.itemsInCart) {
-        html += ``
+      for (const item in cart) {
+        html += `<li class="list-group-item">${item}; Count: ${cart[item][0]}; Cost: $${cart[item][1]}.`
+        // Format cents. This is why I seperated the dollars and cents to two values.
+        var cost = cart[item][2]
+        if (cost < 10 && cost > -1) {
+          cost = cost.toString()
+          cost = "0" + cost
+        }
+        html += `${cost}</li>`
       }
       function addItem(item, dollars, cents) {
         if (localStorage.itemsInCart[item]) {
