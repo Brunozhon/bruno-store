@@ -42,7 +42,7 @@
           cost = cost.toString()
           cost = "0" + cost
         }
-        html += `${cost}</li><button onclick="deleteItem(cartItems[item][0])">Delete One Of This</button>`
+        html += `${cost}</li><button onclick="deleteItem(item)">Delete One Of This</button>`
       }
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
