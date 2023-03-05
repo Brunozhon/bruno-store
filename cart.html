@@ -81,7 +81,7 @@
         if (confirm(`Do you want to delete one of the item ${item}?`)) {
           var realCart = JSON.parse(localStorage.itemsInCart)
           if (realCart[item][0] == 1) {
-            delete realCart[item]
+            realCart[item] = function loophole() {}
           } else {
             let centsEach = realCart[item][2] / realCart[item][0]
             let dollarsEach = realCart[item][1] / realCart[item][0]
@@ -92,9 +92,9 @@
               realCart[item][2] -= 100
               realCart[item][1] += 1
             }
-            localStorage.itemsInCart = JSON.stringify(realCart)
-            location.replace("https://brunozhon.github.io/bruno-store/cart.html")
           }
+          localStorage.itemsInCart = JSON.stringify(realCart)
+          location.replace("https://brunozhon.github.io/bruno-store/cart.html")
         }
       }
     </script>
