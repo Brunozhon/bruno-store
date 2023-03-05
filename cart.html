@@ -42,7 +42,8 @@
           cost = cost.toString()
           cost = "0" + cost
         }
-        html += `${cost}</li><button onclick="deleteItem('${item}')">Delete One Of This</button>`
+        html += `${cost}</li><li><button onclick="deleteItem('${item}')">Delete All Of This</button></li>
+        <li><button onclick="deleteItem('${item}')">Delete One Of This</button></li>`
       }
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
@@ -69,14 +70,33 @@
         }
       }
       function deleteItem(item) {
-        if (confirm(`Do you want to delete the item ${item}?`)) {
+        if (confirm(`Do you want to delete ALL OF the item ${item}?`)) {
           var realCart = JSON.parse(localStorage.itemsInCart)
           delete realCart[item]
           localStorage.itemsInCart = JSON.stringify(realCart)
           location.replace("https://brunozhon.github.io/bruno-store/cart.html")
         }
       }
-      
+      function deleteOneOf(item) {
+        if (confirm(`Do you want to delete one of the item ${item}?`)) {
+          var realCart = JSON.parse(localStorage.itemsInCart)
+          if (realCart[item][0] == 1) {
+            delete realCart[item]
+          } else {
+            let centsEach = realCart[item][2] / realCart[item][0]
+            let dollarsEach = realCart[item][1] / realCart[item][0]
+            realCart[item][0] -= 1
+            realCart[item][1] = dollarsEach * realCart[item][0]
+            realCart[item][2] = centsEach * realCart[item][0]
+            while (realCart[item][2] > 99) {
+              realCart[item][2] -= 100
+              realCart[item][1] += 1
+            }
+            localStorage.itemsInCart = JSON.stringify(realCart)
+            location.replace("https://brunozhon.github.io/bruno-store/cart.html")
+          }
+        }
+      }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
