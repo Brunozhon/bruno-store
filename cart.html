@@ -43,7 +43,7 @@
           cost = "0" + cost
         }
         html += `${cost}</li><li><button onclick="deleteItem('${item}')">Delete All Of This</button></li>
-        <li><button onclick="deleteItem('${item}')">Delete One Of This</button></li>`
+        <li><button onclick="deleteOneOf('${item}')">Delete One Of This</button></li>`
       }
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
