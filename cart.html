@@ -35,14 +35,14 @@
       var cartItems = JSON.parse(localStorage.itemsInCart)
       // Render items
       for (const item in cartItems) {
-        html += `<li class="list-group-item">${item}; Count: ${cartItems[item][0]}; Cost each: $${cartItems[item][1]}.`
+        html += `<li class="list-group-item">${item}; Count: ${cartItems[item][0]}; Cost: $${cartItems[item][1]}.`
         // Format cents. This is why I seperated the dollars and cents to two values.
         var cost = cartItems[item][2]
         if (cost < 10 && cost > -1) {
           cost = cost.toString()
           cost = "0" + cost
         }
-        html += `${cost}</li><button onclick="deleteItem(${item})">Delete One Of This</button>`
+        html += `${cost}</li><button onclick="deleteItem('${item}')">Delete One Of This</button>`
       }
       document.getElementById("cart").innerHTML = html
       function addItem(item, dollars, cents) {
