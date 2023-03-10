@@ -68,12 +68,16 @@
       lis[1].innerHTML = `Bruno Tax: $${formatted(tax)}`
       lis[2].innerHTML = `Total: $${formatted(total)}`
       function formatted(cost) {
+        var dollars = cost
         var cents = 0
-        while (parseInt(cost) != cost) {
+        while (parseInt(dollars) != dollars) {
           cost -= 0.01
           cents += 1
         }
-        return `${cost}.${cents}`
+        if (cents == 0) {
+          cents = "00"
+        }
+        return `${dollars}.${cents}`
       }
     </script>
   </body>
