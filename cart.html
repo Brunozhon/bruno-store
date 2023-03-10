@@ -96,11 +96,11 @@
             let moneyCalc = (realCart[item][1] * 100 + realCart[item][2]) / realCart[item][0]
             realCart[item][0] -= 1
             let total = moneyCalc * realCart[item][0]
-            while (moneyCalc > 99) {
-              moneyCalc -= 100
+            while (total > 99) {
+              total -= 100
               realCart[item][1] += 1
             }
-            realCart[item][2] = moneyCalc
+            realCart[item][2] = total
           }
           localStorage.itemsInCart = JSON.stringify(realCart)
           location.replace("https://brunozhon.github.io/bruno-store/cart.html")
