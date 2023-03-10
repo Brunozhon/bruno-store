@@ -64,9 +64,20 @@
       var tax = Math.ceil(cost * 0.1) // Bruno tax: 10%
       var total = cost + tax
       var lis = document.querySelectorAll("li")
-      lis[0].innerHTML = `Cost: ${cost}`
-      lis[1].innerHTML = `Bruno Tax: ${tax}`
-      lis[2].innerHTML = `Total: ${total}`
+      lis[0].innerHTML = `Cost: $${cost}`
+      lis[1].innerHTML = `Bruno Tax: $${tax}`
+      lis[2].innerHTML = `Total: $${total}`
+      function formatted(cost) {
+        var cents = 0
+        while (parseInt(cost) !== cost) {
+          cost -= 0.01
+          cents += 1
+        }
+        if (cents < 10) {
+          cost = `0${cost}`
+        }
+        return `${cost}.${cents}`
+      }
     </script>
   </body>
 </html>
