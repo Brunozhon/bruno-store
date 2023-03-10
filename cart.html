@@ -96,6 +96,7 @@
             let moneyCalc = (realCart[item][1] * 100 + realCart[item][2]) / realCart[item][0]
             realCart[item][0] -= 1
             let total = moneyCalc * realCart[item][0]
+            realCart[item][1] = 0
             while (total > 99) {
               total -= 100
               realCart[item][1] += 1
