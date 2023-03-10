@@ -93,15 +93,14 @@
           if (realCart[item][0] == 1) {
             realCart[item] = function loophole() {}
           } else {
-            let centsEach = realCart[item][2] / realCart[item][0]
-            let dollarsEach = realCart[item][1] / realCart[item][0]
+            let moneyCalc = (realCart[item][1] * 100 + realCart[item][2]) / realCart[item][0]
             realCart[item][0] -= 1
-            realCart[item][1] = dollarsEach * realCart[item][0]
-            realCart[item][2] = centsEach * realCart[item][0]
-            while (realCart[item][2] > 99) {
-              realCart[item][2] -= 100
+            let total = moneyCalc * realCart[item][0]
+            while (moneyCalc > 99) {
+              moneyCalc -= 100
               realCart[item][1] += 1
             }
+            realCart[item][2] = moneyCalc
           }
           localStorage.itemsInCart = JSON.stringify(realCart)
           location.replace("https://brunozhon.github.io/bruno-store/cart.html")
