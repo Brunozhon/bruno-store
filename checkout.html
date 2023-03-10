@@ -69,7 +69,7 @@
       lis[2].innerHTML = `Total: $${formatted(total)}`
       function formatted(cost) {
         var cents = 0
-        while (parseInt(cost) !== cost) {
+        while (parseInt(cost) != cost) {
           cost -= 0.01
           cents += 1
         }
