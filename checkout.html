@@ -71,7 +71,7 @@
         var dollars = cost
         var cents = 0
         while (parseInt(dollars) != dollars) {
-          cost -= 0.01
+          dollars -= 0.01
           cents += 1
         }
         if (cents == 0) {
